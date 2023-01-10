@@ -1,12 +1,12 @@
 ---
 # UNL thesis fields
-title: "DISSERTATION TITLE IN ALL CAPS"
-author: "Author Full Name"
-month: "Month"
-year: "Year"
+title: "STATISTICAL TESTING OF ACTIVITY CLIFFS"
+author: "Sarah Josephine Aurit"
+month: "December"
+year: "2023"
 location: "Lincoln, Nebraska"
 major: "Statistics"
-adviser: "Advisor name"
+adviser: "Souparno Ghosh"
 abstract: |
   Here is my abstract. *(350 word limit)*
 acknowledgments: |
