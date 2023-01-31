@@ -77,10 +77,16 @@ library(ggplot2)
 ## Motivation and Background
 
 The journey of discovering effective cancer drugs can be long and expensive. The elements of time and cost weigh against the race to improve survival and the quality of life for cancer patients. Researchers typically start testing drug compounds on cancer cell lines within a laboratory setting first before testing on animals or humans. To narrow the search field, drugs are sometimes pursued that are similar to ones previously found to be successful in cancer treatment. That said, it is possible for the new drug to be much less effective, which is defined as an activity cliff (Cruz-Monteagudo et al., 2014).
-According to HU et al. (2017), compounds that are structurally similar yet have large potency differences are identified as producing activity cliffs upon an activity landscape. Additionally, an activity cliff is potentially produced within the context of the following four key aspects: 1) we are considering and comparing a pair of compounds, 2) both compounds are active against the same target, 3) the two compounds are similar in chemical structure, and 4) there is a difference in potency.
-If we imagine plotting the response of a drug over a landscape and assume that a higher level represents better drug effectiveness than a lower level, the activity cliff would be a steep dropoff in the landscape. My work consists of the investigation of activity cliffs to identify the factors that may contribute to their development via statistical methods. 
 
-Editing text colors: \authorcol{Author's editing color. Use \expandafter\string\authorcol{}} Author may also use mostly black text as well. \chaircol{Chair's editing color. Use \expandafter\string\chaircol{}} \cochaircol{Co-chair's editing color. Use \expandafter\string\cochaircol{}} Redefine commands in unlthesis.cls with initials.
+According to HU et al. (2017), compounds that are structurally similar yet have large potency differences are identified as producing activity cliffs upon an activity landscape. Additionally, an activity cliff is potentially produced within the context of the following four key aspects: 1) we are considering and comparing a pair of compounds, 2) both compounds are active against the same target, 3) the two compounds are similar in chemical structure, and 4) there is a difference in potency.
+
+Focusing on the aspect of compound similarity via cheminformatics, formal investigation is completed by looking at similarity measurements. There are multiple approaches regarding the quantification of similarity between two compounds. One popular selection is the Tanimoto coefficient.
+
+The Tanimoto coefficient, a measure of similarity, is determined by the quantification of molecular attributes that are similar between two molecular compounds. Essentially, it is a ratio of the number of similar entities divided by the total number of molecular attributes. "Why is Tanimoto index an appropriate choice for fingerprint-based similarity calculations?"
+
+Analogously, matched molecular pairs (MMP) analysis encompasses another measurement of similarity. Essentially, two molecules differ by one "well-defined, structural" chemical transformation. https://pubs-acs-org.libproxy.unl.edu/doi/pdf/10.1021/jm200452d. MMPs were initially used as a special case of a quantitative structure-activity relationship (QSAR), which relates
+
+If we imagine plotting the response of a drug over a landscape and assume that a higher level represents better drug effectiveness than a lower level, the activity cliff would be a steep drop off in the landscape. My work consists of the investigation of activity cliffs to identify the factors that may contribute to their development via statistical methods.
 
 
 
