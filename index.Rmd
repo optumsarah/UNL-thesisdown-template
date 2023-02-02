@@ -84,9 +84,17 @@ Focusing on the aspect of compound similarity via cheminformatics, formal invest
 
 The Tanimoto coefficient, a measure of similarity, is determined by the quantification of molecular attributes that are similar between two molecular compounds. Essentially, it is a ratio of the number of similar entities divided by the total number of molecular attributes. "Why is Tanimoto index an appropriate choice for fingerprint-based similarity calculations?"
 
-Analogously, matched molecular pairs (MMP) analysis encompasses another measurement of similarity. Essentially, two molecules differ by one "well-defined, structural" chemical transformation. https://pubs-acs-org.libproxy.unl.edu/doi/pdf/10.1021/jm200452d. MMPs were initially used as a special case of a quantitative structure-activity relationship (QSAR), which relates
+Analogously, matched molecular pairs (MMP) analysis encompasses another measurement of similarity. Essentially, two molecules differ by one "well-defined, structural" chemical transformation. https://pubs-acs-org.libproxy.unl.edu/doi/pdf/10.1021/jm200452d. MMPs were initially used as a special case of a quantitative structure-activity relationship (QSAR), which relates molecular compounds to the response of potency or other biochemical properties.
 
-If we imagine plotting the response of a drug over a landscape and assume that a higher level represents better drug effectiveness than a lower level, the activity cliff would be a steep drop off in the landscape. My work consists of the investigation of activity cliffs to identify the factors that may contribute to their development via statistical methods.
+QSAR methodology can be essential in determining the relationships between chemical structures and biochemical activities, and it is typical that the methodology incorporates supervised machine learning techniques. Compounds are first represented by a numerical entity such as a two-dimensional structural formula that promulgates atom connectivity via chemical bonds. The structural formula then is related to bioactivities. It is not uncommon for there to be violations of QSAR methodology given the presence of an activity cliff (AC). Reference: QSAR modeling where have you been where are you going
+
+The Genomics of Drug Sensitivity in Cancer (GDSC) database was formed based on a collaborative effort of the UK's Wellcome Sanger Institute's Cancer Genome Project and Massachusetts' General Hospital's Center for Molecular Therapeutics. It is a repository and compilation of anti-cancer drug response information linked to cancer cell lines of multiple primary cancer sites. The response is quantified by \textit{$\mathrm{IC_50}$}, a metric that reveals how much substance or dose is necessary to inhibit a biological component by 50%. Also, AUC values are calculated from dose-response curves attributed to nine dose levels where drug response is measured 72 hours post-administration of drug to cancer cell lines. Disregarding missing data, approximately 900 drug characteristics were identified within this data source.
+
+Look at data
+
+DFTs
+
+
 
 
 
