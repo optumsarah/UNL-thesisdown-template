@@ -88,9 +88,19 @@ Analogously, matched molecular pairs (MMP) analysis encompasses another measurem
 
 QSAR methodology can be essential in determining the relationships between chemical structures and biochemical activities, and it is typical that the methodology incorporates supervised machine learning techniques. Compounds are first represented by a numerical entity such as a two-dimensional structural formula that promulgates atom connectivity via chemical bonds. The structural formula then is related to bioactivities. It is not uncommon for there to be violations of QSAR methodology given the presence of an activity cliff (AC). Reference: QSAR modeling where have you been where are you going
 
-The Genomics of Drug Sensitivity in Cancer (GDSC) database was formed based on a collaborative effort of the UK's Wellcome Sanger Institute's Cancer Genome Project and Massachusetts' General Hospital's Center for Molecular Therapeutics. It is a repository and compilation of anti-cancer drug response information linked to cancer cell lines of multiple primary cancer sites. The response is quantified by \textit{$\mathrm{IC_50}$}, a metric that reveals how much substance or dose is necessary to inhibit a biological component by 50%. Also, AUC values are calculated from dose-response curves attributed to nine dose levels where drug response is measured 72 hours post-administration of drug to cancer cell lines. Disregarding missing data, approximately 900 drug characteristics were identified within this data source.
+## GDSC Dataset 
 
-Look at data
+The Genomics of Drug Sensitivity in Cancer (GDSC) database was instituted by the UK's Wellcome Sanger Institute's Cancer Genome Project and Massachusetts General Hospital's Center for Molecular Therapeutics. It is a repository and compilation of anti-cancer drug response information linked to cancer cell lines of multiple primary cancer sites. The response is quantified by $IC_\text{50}$, a metric that reveals how much substance or dose is necessary to inhibit a biological component by 50%. Also, AUC values were calculated from dose-response curves attributed to nine dose levels where drug response is measured 72 hours post-administration of drug to cancer cell lines. 
+
+We focus on breast cancer data, which is comprised by 208 drugs. Disregarding missing data, approximately 900 drug characteristics were identified for each drug alongside $IC_\text{50}$ values. 
+
+## Isomap 
+
+Dimension reduction is a critical element in the investigation of breast cancer drugs because of the high dimensionality of drug characteristics relative to the number of drugs. Classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS) rely on the assumptions that fail within the context of non-linear structures that are intrinsic to some datasets. An alternative dimension reduction technique is that of isometric feature mapping (isomap). https://wearables.cc.gatech.edu/paper_of_week/isomap.pdf The algorithm is comprised of three steps. First, Euclidean distances are calculated at each point for all other points that are either within a specific radius or are considered a $K$ nearest neighbors ($k$NN), which are utilized to construct a distance matrix. Next, geodesic distances for all pairwise distances using an algorithm that calculates the shortest path, which includes Dijkstra's or Floyd-Warshall algorithm. Finally, MDS is applied to geodesic distances.
+
+LMNN
+
+Plot of distances before and after LMNN
 
 DFTs
 
