@@ -10,9 +10,13 @@ adviser: "Souparno Ghosh"
 abstract: |
   Here is my abstract. *(350 word limit)*
 acknowledgments: |
-  Thank you to all my people!
+  
+I am grateful for this second opportunity from the University of Nebraska-Lincoln to pursue further education. I am more appreciative of the academic journey, which includes meeting so many new and inspiring individuals including my fellow students, professors, and advisor and exposure to new and cutting edge content to sharpen my statistical skillset. The journey mirrored other aspects of life in which I had to discover that with enough hard work that many things are possible, and that I still have a contribution to make within multiple realms of life. Thank you Dr. Stroup for giving me the confidence to continue moving forward in the work. Dr. Eskridge you were an inspiration and I learned so much from you. Dr. Ghosh, thank you for taking me on when you already had so many students.  
+
 dedication: |
-  Dedicated to...
+  
+To my most beloved children, you are cherished beyond words and I hope this endeavour proves fruitful for us as a family in the years to come. YOu were patient with me, and I hope that I have shown you a small portion of what is possible in your own life. 
+
 # End of UNL thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -96,13 +100,26 @@ We focus on breast cancer data, which is comprised by 208 drugs. Disregarding mi
 
 ## Isomap 
 
-Dimension reduction is a critical element in the investigation of breast cancer drugs because of the high dimensionality of drug characteristics relative to the number of drugs. Classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS) rely on the assumptions that fail within the context of non-linear structures that are intrinsic to some datasets. An alternative dimension reduction technique is that of isometric feature mapping (isomap). https://wearables.cc.gatech.edu/paper_of_week/isomap.pdf The algorithm is comprised of three steps. First, Euclidean distances are calculated at each point for all other points that are either within a specific radius or are considered a $K$ nearest neighbors ($k$NN), which are utilized to construct a distance matrix. Next, geodesic distances for all pairwise distances using an algorithm that calculates the shortest path, which includes Dijkstra's or Floyd-Warshall algorithm. Finally, MDS is applied to geodesic distances.
+Dimension reduction is a critical element in the investigation of breast cancer drugs because of the high dimensionality of drug characteristics relative to the number of drugs. Classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS) rely on the assumptions that fail within the context of non-linear structures that are intrinsic to some datasets. An alternative dimension reduction technique is that of isometric feature mapping (isomap). https://wearables.cc.gatech.edu/paper_of_week/isomap.pdf The algorithm is comprised of three steps. First, Euclidean distances are calculated at each point for all other points that are either within a specific radius or are considered a $K$ nearest neighbors ($k$NN), which are utilized to construct a distance matrix. Next, geodesic distances for all pairwise distances using an algorithm that calculates the shortest path, which includes Dijkstra's (shortest pathway from one node to another while navigating intermediary nodes) or Floyd-Warshall algorithm. Finally, MDS is applied to these geodesic distances.
 
 LMNN
 
 Plot of distances before and after LMNN
 
-DFTs
+## Stationarity for Irregularly Spaced Data
+
+We can consider the investigation of drug efficacy over molecular space within the context of spatial statistics. Commonly, assumptions surrounding spatial data include that of second-order stationarity to make accurate predictions. We consider drug efficacy as a random variable for each known position within molecular space. The first requirement for second-order stationarity is that the expectation and variance of drug efficacy is constant over the entire domain of molecular space. The second requirement is that the covariance between any two observations only relies on the distance between the two observations. 
+
+\begin{equation}
+  \mu=E(Z(s))=\sum P_{i}x_{i} 
+\end{equation}
+
+
+
+
+
+
+
 
 
 
