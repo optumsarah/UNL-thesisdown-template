@@ -10,13 +10,14 @@ adviser: "Souparno Ghosh"
 abstract: |
   Here is my abstract. *(350 word limit)*
 acknowledgments: |
-  
-I am grateful for this second opportunity from the University of Nebraska-Lincoln to pursue further education. I am more appreciative of the academic journey, which includes meeting so many new and inspiring individuals including my fellow students, professors, and advisor and exposure to new and cutting edge content to sharpen my statistical skillset. The journey mirrored other aspects of life in which I had to discover that with enough hard work that many things are possible, and that I still have a contribution to make within multiple realms of life. Thank you Dr. Stroup for giving me the confidence to continue moving forward in the work. Dr. Eskridge you were an inspiration and I learned so much from you. Dr. Ghosh, thank you for taking me on when you already had so many students.  
+  I am grateful for this second opportunity from the University of Nebraska-Lincoln to pursue further education. I am more appreciative of the academic journey, which includes meeting so many new and inspiring individuals including my fellow students, professors, and advisor and exposure to new and cutting edge content to sharpen my statistical skillset. The journey mirrored other aspects of life in which I had to discover that with enough hard work that many things are possible, and that I still have a contribution to make within multiple realms of life. 
+
+  Thank you Dr. Stroup for giving me the confidence to continue moving forward in the work. Dr. Eskridge you were an inspiration and I learned so much from you. Dr. Ghosh, thank you for taking me on when you already had so many students.  
+
+  To my most beloved children, you are cherished beyond words and I hope this endeavour proves fruitful for us as a family in the years to come. You were patient with me, and I hope that I have shown you a small portion of what is possible in your own life.
 
 dedication: |
-  
-To my most beloved children, you are cherished beyond words and I hope this endeavour proves fruitful for us as a family in the years to come. YOu were patient with me, and I hope that I have shown you a small portion of what is possible in your own life. 
-
+  Dedicated to...
 # End of UNL thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -74,6 +75,7 @@ library(huskydown)
 library(tidyverse)
 library(knitr)
 library(ggplot2)
+library(formatR)
 ```
 
 # Literature Review
@@ -88,19 +90,19 @@ Focusing on the aspect of compound similarity via cheminformatics, formal invest
 
 The Tanimoto coefficient, a measure of similarity, is determined by the quantification of molecular attributes that are similar between two molecular compounds. Essentially, it is a ratio of the number of similar entities divided by the total number of molecular attributes. "Why is Tanimoto index an appropriate choice for fingerprint-based similarity calculations?"
 
-Analogously, matched molecular pairs (MMP) analysis encompasses another measurement of similarity. Essentially, two molecules differ by one "well-defined, structural" chemical transformation. https://pubs-acs-org.libproxy.unl.edu/doi/pdf/10.1021/jm200452d. MMPs were initially used as a special case of a quantitative structure-activity relationship (QSAR), which relates molecular compounds to the response of potency or other biochemical properties.
+Analogously, matched molecular pairs (MMP) analysis encompasses another measurement of similarity. Essentially, two molecules differ by one "well-defined, structural" chemical transformation. <https://pubs-acs-org.libproxy.unl.edu/doi/pdf/10.1021/jm200452d>. MMPs were initially used as a special case of a quantitative structure-activity relationship (QSAR), which relates molecular compounds to the response of potency or other biochemical properties.
 
 QSAR methodology can be essential in determining the relationships between chemical structures and biochemical activities, and it is typical that the methodology incorporates supervised machine learning techniques. Compounds are first represented by a numerical entity such as a two-dimensional structural formula that promulgates atom connectivity via chemical bonds. The structural formula then is related to bioactivities. It is not uncommon for there to be violations of QSAR methodology given the presence of an activity cliff (AC). Reference: QSAR modeling where have you been where are you going
 
-## GDSC Dataset 
+## GDSC Dataset
 
-The Genomics of Drug Sensitivity in Cancer (GDSC) database was instituted by the UK's Wellcome Sanger Institute's Cancer Genome Project and Massachusetts General Hospital's Center for Molecular Therapeutics. It is a repository and compilation of anti-cancer drug response information linked to cancer cell lines of multiple primary cancer sites. The response is quantified by $IC_\text{50}$, a metric that reveals how much substance or dose is necessary to inhibit a biological component by 50%. Also, AUC values were calculated from dose-response curves attributed to nine dose levels where drug response is measured 72 hours post-administration of drug to cancer cell lines. 
+The Genomics of Drug Sensitivity in Cancer (GDSC) database was instituted by the UK's Wellcome Sanger Institute's Cancer Genome Project and Massachusetts General Hospital's Center for Molecular Therapeutics. It is a repository and compilation of anti-cancer drug response information linked to cancer cell lines of multiple primary cancer sites. The response is quantified by $IC_\text{50}$, a metric that reveals how much substance or dose is necessary to inhibit a biological component by 50%. Also, AUC values were calculated from dose-response curves attributed to nine dose levels where drug response is measured 72 hours post-administration of drug to cancer cell lines.
 
-We focus on breast cancer data, which is comprised by 208 drugs. Disregarding missing data, approximately 900 drug characteristics were identified for each drug alongside $IC_\text{50}$ values. 
+We focus on breast cancer data, which is comprised by 208 drugs. Disregarding missing data, approximately 900 drug characteristics were identified for each drug alongside $IC_\text{50}$ values.
 
-## Isomap 
+## Isomap
 
-Dimension reduction is a critical element in the investigation of breast cancer drugs because of the high dimensionality of drug characteristics relative to the number of drugs. Classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS) rely on the assumptions that fail within the context of non-linear structures that are intrinsic to some datasets. An alternative dimension reduction technique is that of isometric feature mapping (isomap). https://wearables.cc.gatech.edu/paper_of_week/isomap.pdf The algorithm is comprised of three steps. First, Euclidean distances are calculated at each point for all other points that are either within a specific radius or are considered a $K$ nearest neighbors ($k$NN), which are utilized to construct a distance matrix. Next, geodesic distances for all pairwise distances using an algorithm that calculates the shortest path, which includes Dijkstra's (shortest pathway from one node to another while navigating intermediary nodes) or Floyd-Warshall algorithm. Finally, MDS is applied to these geodesic distances.
+Dimension reduction is a critical element in the investigation of breast cancer drugs because of the high dimensionality of drug characteristics relative to the number of drugs. Classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS) rely on the assumptions that fail within the context of non-linear structures that are intrinsic to some datasets. An alternative dimension reduction technique is that of isometric feature mapping (isomap). <https://wearables.cc.gatech.edu/paper_of_week/isomap.pdf> The algorithm is comprised of three steps. First, Euclidean distances are calculated at each point for all other points that are either within a specific radius or are considered a $K$ nearest neighbors ($k$NN), which are utilized to construct a distance matrix. Next, all pairwise distances are calculated and the shortest path is selected by Dijkstra's (shortest pathway from one node to another while navigating intermediary nodes) or Floyd-Warshall algorithm. Finally, MDS is applied to these distances.
 
 LMNN
 
@@ -108,23 +110,82 @@ Plot of distances before and after LMNN
 
 ## Stationarity for Irregularly Spaced Data
 
-We can consider the investigation of drug efficacy over molecular space within the context of spatial statistics. Commonly, assumptions surrounding spatial data include that of second-order stationarity to make accurate predictions. We consider drug efficacy as a random variable for each known position within molecular space. The first requirement for second-order stationarity is that the expectation and variance of drug efficacy is constant over the entire domain of molecular space. The second requirement is that the covariance between any two observations only relies on the distance between the two observations. 
+We can consider the investigation of drug efficacy over molecular space within the context of spatial statistics. Commonly, assumptions surrounding spatial data include that of second-order stationarity to make accurate predictions. We consider drug efficacy as a random variable for each known position within molecular space. The first requirement for second-order stationarity is that the expectation and variance of drug efficacy is constant over the entire domain of molecular space. The second requirement is that the covariance between any two observations only relies on the distance between the two observations. Denote a spatial process in $d$ dimensions, and where $\textbf{s}$ is the location in two dimensions post-dimension reduction. Also, let $Z(\textbf{s})$ be the realization of a process, and let $Z(\textbf{s})$ be a random variable, which is indexed by its location $\textbf{s} \in R^\text{2}$.
 
 \begin{equation}
-  \mu=E(Z(s))=\sum P_{i}x_{i} 
+  E[Z(\textbf{s})]=\mu 
+\end{equation} \begin{equation}
+  cov[{Z(\textbf{s}_\text1),Z(\textbf{s}_\text2)}]=c(\textbf{s}_\text1, \textbf{s}_\text2) 
 \end{equation}
 
+Bandyopadhyya and Rao (2017), proposed a test for second order stationarity for irregularly spaced data for the region $[-\lambda/2, \lambda/2]^\text{2}$ assuming the locations are independent and uniformly distributed random variables. An adaptation of the classical discrete Fourier transforms (DFTs) of a time series for a spatial random field is as follows for $(\textbf{s}_j,Z(\textbf{s}_j); j = 1,...,n)$ observations:
 
+```{=tex}
+\begin{equation}
+  J_n(\boldsymbol{\omega})=\frac{\lambda^{d/2}}{n}\sum_{j=1}^{n}Z(\textbf{s}_j)exp(i\textbf{s}_j'\boldsymbol{\omega}) 
+\end{equation}
+```
+Given the fact that we have locations of points within a grid of two dimensions, the equation simplifies to:
 
+```{=tex}
+\begin{equation}
+  J_n(\boldsymbol{\omega})=\frac{\lambda}{n}\sum_{j=1}^{n}Z(s_{j_1}, s_{j_2})exp[i(s_{j_1}, s_{j_2})'\boldsymbol{\omega}] 
+\end{equation}
+```
+With $2\pi$ periodicity, the fundamental frequency is $2\pi/\lambda$. The aggregation of terms incorporates frequencies $\boldsymbol{\omega}_k = (2\pi k_1/\lambda,2\pi k_2/\lambda)'$ to transform the sequence of $Z(s_j)$ observations to the DFTs. In matrix form:
 
+```{=tex}
+\begin{equation}
+  J_n(\boldsymbol{\omega}) = \frac{\lambda}{n}
+ \begin{bmatrix}
+    1 & 1 & 1 & \cdots & 1 \\
+    1 & \boldsymbol{\omega}_k & \boldsymbol{\omega}_k^2 & \cdots & \boldsymbol{\omega}_k^{n-1} \\
+    1 & \boldsymbol{\omega}_k^2 & \boldsymbol{\omega}_k^4 & \cdots & \boldsymbol{\omega}_k^{2(n-1)} \\
+    \vdots \\
+    1 & \boldsymbol{\omega}_k^{n-1} & \boldsymbol{\omega}_k^{2(n-1)} & \cdots & \boldsymbol{\omega}_k^{(n-1)(n-1)} 
+  \end{bmatrix}
+  \begin{bmatrix}
+      \hat{y}_{0} \\
+      \hat{y}_{1} \\
+      \hat{y}_{2} \\
+      \vdots \\
+      \hat{y}_{n-1}
+  \end{bmatrix}
+\end{equation}
+```
+In order to examine stationarity vs. non-stationarity, we construct a test statistic to investigate the null hypothesis that the spatial field is second-order stationary as opposed to non-stationary. The first component of the statistic is the measurement of covariance between the DFTs and a lag $r$:
 
+```{=tex}
+\begin{equation}
+\begin{split}
+  \hat{A}_\lambda(g;r)&=\frac{1}{\lambda^{d}}\sum_{k_1,\cdots,k_d=-a}^{a}g(\omega_k)J_n(\omega_k)\overline{J_n(\omega_{k+r})}\\
+  &-\frac{1}{n}\sum_{k_1,...,k_d=-a}^{a}g(\omega_k) x \frac{1}{n}\sum_{j=1}^{n}Z(s_j)^2exp(-is'_j\omega_r)
+\end{split}
+\end{equation}
+```
+where $g$ is a Lipschitz continuous function. The test statistic is then constructed from this as follows:
 
+```{=tex}
+\begin{equation}
+  T_S=\frac{\lambda^d max_{\left(r \epsilon S\right)}{\left\lvert\hat{A}_\lambda\left(g;r\right) \right\rvert}^2} {c_{\left(\lambda,1\right)}}
+\end{equation}
+```
+where $S$ is a finite set that surrounds the origin, and $S \cap S' =\emptyset$.
 
+The estimation of $c_{\lambda,1}$ is as follows: \begin{equation}
+  \hat{c}_{\lambda}(S')=\frac{\lambda^d}{2|S'|-1}\sum_{r \epsilon S'}[({\mathscr{R} \hat{A}_\lambda(g;r)-\overline{A}})^2+({\mathscr{I} \hat{A}_\lambda(g;r)-\overline{A}})^2]
+\end{equation}
 
+$S'\epsilon Z^d/ \{0\}$ and $\overline{A}={{1/2|S'|}}\sum_{r \epsilon S'}({\mathscr{R} \hat{A}_\lambda(g;r)+\mathscr{I} \hat{A}_\lambda(g;r)})$
 
+It is intuitive to think that When lag $r$ that is close to zero, the coefficients $\hat{A}$ have similar variance.
 
+We investigate second-order stationarity for the GDSC data consisting of 208 drugs applied to breast cancer cell lines and the response of log$IC_\text{50}$. We initially employ two scenarios that differ based on lambda value. For each scenario, we look at the data before and after transformation in conjunction with differences in the number of grid elements in $Z^2$ to present the T test statistic values and associated p-values.
 
+## <!--#  -->Results
 
+Insert figures
 
+## Discussion and Conclusion
 
-
+Insert figures
